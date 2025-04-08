@@ -29,5 +29,22 @@ encabezado2.innerText = ++contador;
 
 btnMostrar.addEventListener("click", function(event){
     event.preventDefault(); //Evita que haga lo que hace por defecto.
-    console.log("boton btnMostrar presionado");
+   let element = document.createElement("li");
+   element.innerText="Another item";  // <li>Another item</li>
+   element.classList.add("list-group-item");
+   
+   let element2 = element.cloneNode(true);
+
+    // Inserta el elemento antes de la lista
+    // listas.item(0).before(element);
+    // Inserta el elemento al principio de la lista
+    // listas.item(0).prepent(element2);
+    //Inserta el elemento al final de la lista
+    listas.item(0).append(element);
+    // Inserta el elemento despues de la lista
+    listas.item(0).after(element2);
+    
 });
+
+
+// console.log("boton btnMostrar presionado");
