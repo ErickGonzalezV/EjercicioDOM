@@ -33,17 +33,29 @@ btnMostrar.addEventListener("click", function(event){
    element.innerText="Another item";  // <li>Another item</li>
    element.classList.add("list-group-item");
    
-   let element2 = element.cloneNode(true);
+   let element2 = element.cloneNode(true); //Clona el nodo para hacer un segundo elemento
 
     // Inserta el elemento antes de la lista
     // listas.item(0).before(element);
     // Inserta el elemento al principio de la lista
     // listas.item(0).prepent(element2);
     //Inserta el elemento al final de la lista
-    listas.item(0).append(element);
+    // listas.item(0).append(element);
     // Inserta el elemento despues de la lista
-    listas.item(0).after(element2);
+    // listas.item(0).after(element2);
     
+    //listas.item(1).insertAdjacentElement("afterbegin", element);
+    //listas.item(1).insertAdjacentElement("beforeend", element2);
+
+    listas.item(1).insertAdjacentHTML("beforebegin", 
+        `<li class="list-group-item">Before begin item</li>`);
+    listas.item(1).insertAdjacentHTML("afterend", 
+        `<li class="list-group-item">After end item</li>`);
+        listas.item(1).insertAdjacentHTML("afterbegin", 
+            `<li class="list-group-item">After begin item</li>`);
+        listas.item(1).insertAdjacentHTML("beforeend", 
+            `<li class="list-group-item">Before end item</li>`);
+
 });
 
 
