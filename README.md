@@ -9,7 +9,7 @@ Tareas por realizar:
 
 ---
 
-Codigo para actualizar el repositori
+Codigo para actualizar el repositorio
 ```
 
 git status
@@ -17,3 +17,5 @@ git add .
 git gommit -m "Mensaje"
 git push origin main
 ```
+> Vista previa del index.html
+![Index](https://raw.githubusercontent.com/ErickGonzalezV/EjercicioDOM/refs/heads/main/images/Screenshot%202025-04-08%20104252.png)
