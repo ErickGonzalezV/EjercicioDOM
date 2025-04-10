@@ -3,10 +3,15 @@ let encabezado2 = document.getElementById("encabezado2");
 let encabezado1 = document.getElementById("encabezado1");
 let listas = document.getElementsByTagName("ul");
 let elementos = document.getElementsByTagName("list-group-item")
-
 let otroElemento = document.querySelector("ul>li"); //Primero
-
 let otrosElemento = document.querySelectorAll("ul>li"); 
+
+let txtRFC = document.getElementById("txtRFC");
+let txtCURP = document.getElementById("txtCURP");
+let txtTelefono = document.getElementById("txtTelefono");
+
+
+
 console.log("OtroElemento", otroElemento);
 console.log("OtrosElemento", otrosElemento.length);
 
@@ -38,7 +43,7 @@ btnMostrar.addEventListener("click", function(event){
     // Inserta el elemento antes de la lista
     // listas.item(0).before(element);
     // Inserta el elemento al principio de la lista
-    // listas.item(0).prepent(element2);
+    // listas.item(0).prepend(element2);
     //Inserta el elemento al final de la lista
     // listas.item(0).append(element);
     // Inserta el elemento despues de la lista
@@ -56,7 +61,85 @@ btnMostrar.addEventListener("click", function(event){
         listas.item(1).insertAdjacentHTML("beforeend", 
             `<li class="list-group-item">Before end item</li>`);
 
-});
+});//btnMostrar
+
+// Se ejecuta cuando termina de cargar todos los elementos de la pagina
+window.addEventListener("load", function(event){
+    console.log("Se termino de cargar la pagina")
 
 
-// console.log("boton btnMostrar presionado");
+
+}); //load
+
+//Automatizar el codigo
+function txtToUpper(event){
+    event.preventDefault();
+    event.target.value = event.target.value.trim().toUpperCase();
+}//txtToUpper
+
+
+
+
+
+
+//BLUR Y TOUPPER DE RFC Y CURP
+
+// Blur -> Cuando se sale del campo     
+txtRFC.addEventListener("blur", txtToUpper); //txtRFC
+// Blur -> Cuando se sale del campo
+txtCURP.addEventListener("blur", txtToUpper); //txtCURP
+//txtTelefono
+txtTelefono.addEventListener("blur", function(event){
+  event.preventDefault();
+  txtTelefono.value = txtTelefono.value.trim().slice(0, 10); //Recorta espacios en blanco y despues cualquier 
+                                                            // exceso si ponemos mas de 10 caracteres
+})//txtTelefono
+
+
+
+   // EJEMPLOS DE INSERT ELEMENT
+
+
+btnMostrar.addEventListener("click", function (event) {
+    event.preventDefault();
+    //console.log("botón btnModificar presionado");
+
+    let element = document.createElement("li");
+    element.innerText = "Another item"; //<li>Another item</li>
+    element.classList.add("list-group-item");
+
+    let element2 = element.cloneNode(true)
+
+
+    // before: Inserta el elemeneto antes de la lista
+    // listas.item(0).before(element); 
+
+    // prepend: Inserta el elemento al principio de la lista
+    // listas.item(0).prepend(element2);
+
+    // append: Inserta el elemento al final de la lista
+    // listas.item(0).append(element);
+
+    // // after: Inserta el elemento despue de la lista
+    // listas.item(0).after(element2);
+
+    //afeterbegin Inserta el elemento al principio de la lista
+    // listas.item(1).insertAdjacentElement("afterbegin", element)
+
+    // //beforeend: Inserta el elemento al final de la lsita
+    // listas.item(1).insertAdjacentElement("beforeend", element2)
+
+    listas.item(1).insertAdjacentHTML("beforebegin",
+        `<li class="list-group-item">Before Begin item</li>`);
+
+    listas.item(1).insertAdjacentHTML("afterend",
+        `<li class="list-group-item">
+        After End item
+        </li>`);
+
+    listas.item(1).insertAdjacentHTML("afterbegin",
+        `<li class="list-group-item">After Begin item</li>`);
+
+    listas.item(1).insertAdjacentHTML("beforeend",
+        `<li class="list-group-item">Before End item</li>`);
+    });//botonMostrar
