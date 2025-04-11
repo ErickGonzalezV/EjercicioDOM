@@ -78,10 +78,6 @@ function txtToUpper(event){
 }//txtToUpper
 
 
-
-
-
-
 //BLUR Y TOUPPER DE RFC Y CURP
 
 // Blur -> Cuando se sale del campo     
@@ -143,3 +139,30 @@ btnMostrar.addEventListener("click", function (event) {
     listas.item(1).insertAdjacentHTML("beforeend",
         `<li class="list-group-item">Before End item</li>`);
     });//botonMostrar
+
+
+    
+//blur -> al salir del campo
+// txtRFC.addEventListener("blur", function(event){
+//     event.preventDefault();
+//     txtRFC.value = txtRFC.value.toUpperCase();
+// });//txtRFC
+
+// txtCURP.addEventListener("blur", function(event){
+//     event.preventDefault();
+//     txtCURP.value = txtCURP.value.toUpperCase();
+// });//txtRFC
+
+//Esto es mas automatizado
+
+function txtToUpper(event){
+    event.target.value=event.target.value.trim().toUpperCase();
+}
+txtRFC.addEventListener("blur",txtToUpper);
+txtCURP.addEventListener("blur",txtToUpper);
+
+
+txtTel.addEventListener("blur", function(event){
+    event.preventDefault();
+    txtTel.value = txtTel.value.trim().slice(0,10);
+});//txtTel
